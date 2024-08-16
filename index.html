@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f3f4f6;
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            position: absolute;
+            top: 20px;
+            text-align: center;
+        }
+        .header button {
+            padding: 10px 20px;
+            font-size: 18px;
+            margin: 5px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        .header button:hover {
+            background-color: #0056b3;
+        }
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 60px); /*  height to account for the header */
+        }
+        h1 {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 20px;
+            transition: opacity 0.5s ease;
+        }
+        .content {
+            text-align: center;
+        }
+        #loginForm, #aboutUs {
+            display: none;
+        }
+        .register-link {
+            margin-top: 10px;
+            display: block;
+            text-align: center;
+        }
+    </style>
+    <script>
+        function showLoginForm() {
+            document.querySelector('.main-content h1').style.opacity = '0';
+            document.getElementById('aboutUs').style.display = 'none';
+            document.getElementById('loginForm').style.display = 'block';
+        }
+
+        function showAboutUs() {
+            document.querySelector('.main-content h1').style.opacity = '1';
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('aboutUs').style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <div class="header">
+        <button onclick="showLoginForm()">Login</button>
+        <button onclick="showAboutUs()">About Us</button>
+    </div>
+    <div class="main-content">
+        <h1>Welcome to Inbox Technologies Pvt Ltd</h1>
+        <div class="content">
+            <!-- Login Form -->
+            <div id="loginForm">
+                <h2>Login</h2>
+                <form action="login.php" method="post">
+                    <label for="roll_no">Roll No:</label><br>
+                    <input type="text" id="roll_no" name="roll_no" required><br><br>
+                    <label for="password">Password:</label><br>
+                    <input type="password" id="password" name="password" required><br><br>
+                    <button type="submit">Submit</button>
+                </form>
+                <div class="register-link">
+                    <a href="Register_Student.php">Don't have an account! Register!</a>
+                </div>
+            </div>
+            <!-- About Us Section -->
+            <div id="aboutUs">
+                <h2>About Us</h2>
+                <p>Inbox Technologies Pvt Ltd is committed to delivering innovative technology solutions that drive business success.</p>
+                <p>Our expertise in the latest technologies ensures that our clients stay ahead of the competition.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
